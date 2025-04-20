@@ -28,7 +28,6 @@ export function CardForm() {
     values: BankInfoFormValues,
     actions: FormikHelpers<BankInfoFormValues>,
   ) => {
-    console.log('Отправка данных:', values)
     actions.setSubmitting(false)
   }
 
@@ -40,24 +39,24 @@ export function CardForm() {
     >
       {({ handleSubmit, isSubmitting, isValid }) => (
         <form onSubmit={handleSubmit}>
-          <Grid container spacing={3} sx={{width: '500px'}}>
-            <Grid size={{ xs: 12}}>
+          <Grid container spacing={3} sx={{ width: '500px' }}>
+            <Grid size={{ xs: 12 }}>
               <CardNumberField />
             </Grid>
 
-            <Grid size={{ xs: 6}}>
+            <Grid size={{ xs: 6 }}>
               <CVVField />
-            </Grid> 
+            </Grid>
 
-            <Grid size={{ xs: 6}}>
+            <Grid size={{ xs: 6 }}>
               <ExpirationDateField />
             </Grid>
 
-            <Grid size={{ xs: 12}}>
+            <Grid size={{ xs: 12 }}>
               <AmountField />
             </Grid>
 
-            <Grid size={{ xs: 12}}>
+            <Grid size={{ xs: 12 }}>
               <Button
                 type="submit"
                 variant="contained"
