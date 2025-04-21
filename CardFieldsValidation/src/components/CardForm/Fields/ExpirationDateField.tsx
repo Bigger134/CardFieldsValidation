@@ -7,8 +7,6 @@ import { format, parse } from 'date-fns';
 
 export const ExpirationDateField = () => {
   const [field, meta, helpers] = useField('expirationDate');
-  console.log(field.value);
-  
 
   const handleDateChange = (date: Date | null) => {
     helpers.setValue(date);
@@ -23,6 +21,12 @@ export const ExpirationDateField = () => {
         onChange={handleDateChange}
         format="MM/yy"
         views={['month', 'year']}
+        slotProps={{
+          textField: {
+            error: meta.touched && !!meta.error,
+            helperText: meta.touched && meta.error,
+          }
+        }}
       />
     </LocalizationProvider>
   );

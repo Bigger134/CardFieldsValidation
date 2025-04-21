@@ -20,7 +20,10 @@ export function validateLuhn(cardNumber: string): boolean {
 }
 
 export function validateExpirationDate(value: string): boolean {
-  const [monthStr, yearStr] = value.split('/')
+  const date = new Date(value);
+  const monthStr = String(date.getMonth() + 1).padStart(2, '0');
+  const yearStr = String(date.getFullYear()).slice(-2);
+  
   if (!monthStr || !yearStr || monthStr.length !== 2 || yearStr.length !== 2)
     return false
 
